@@ -22,8 +22,11 @@ body{
 }
 
 
-.exampleItem span{
+.exampleItem span {
     font-style: italic;
 }
 
+.pronunciation {
+    font-style: italic;
+}
 
