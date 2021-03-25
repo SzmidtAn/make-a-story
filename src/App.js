@@ -1,25 +1,81 @@
-import logo from './logo.svg';
 import './App.css';
+import {WordsList} from "./WordsList";
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export class App extends React.Component {
+    state = {
+        contacts: [],
+        getWord: "",
+    };
+
+    componentDidMoun = (word) => {
+        var Owlbot = require('owlbot-js');
+
+        var list =  []
+        var client = Owlbot("7c42959444c069238e6df6600d57f3e1c71bb521");
+
+        if (word){
+
+            client
+            .define(this.state.getWord)
+            .then(function (result){
+                list = result
+            })
+            .then(json =>
+            {
+            console.log(list)
+                this.setState({ contacts: [ list ] })
+
+            });
+
+        ;
+
+        }
+
+    }
+
+
+    handleInputChange = (e) => {
+
+        this.componentDidMoun(true)
+    }
+
+    handleChange = (e) => {
+
+        this.setState({
+            getWord: e.target.value
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <main className="container">
+
+                    <section>
+
+                        <label>
+                            Find:
+                            <input type="text" name="name" value={this.state.getWord}
+                                   onChange={this.handleChange} />
+                        </label>
+                        <button type="button"  onClick={this.handleInputChange} >Submit</button>
+
+                    </section>
+
+
+
+                    {(this.state.contacts.length > 0)  ? <WordsList contacts={this.state.contacts}  /> : ''}
+
+                </main>
+            </div>
+        );
+    }
+
+
+
 }
 
-export default App;
+
+
