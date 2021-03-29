@@ -55,6 +55,9 @@ body  {
     padding: 0 2% 0 2%;
     text-align: center;
     box-shadow: 3px 3px 3px var(--orangeDark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -64,7 +67,9 @@ body  {
 
 .textArea {
     width: 80vw;
+    min-width: 25em;
     display: flex;
+    flex-wrap: wrap;
 
 }
 
@@ -101,6 +106,7 @@ body  {
     border-radius: 3px;
     margin: 8px 8px 8px 8px;
     width: 20vw;
+    min-width: 20em;
     color: white;
     border: none;
     display: inline-block;
@@ -147,6 +153,8 @@ body  {
     margin: 8px 8px 8px 8px;
 
     width: 8vw;
+    min-width: 20em;
+
     background-color: transparent;
     color: var(--blue);
 }
@@ -170,7 +178,7 @@ body  {
 }
 
 .home > h1 {
-    font-size: 8vh;
+    font-size: 4vw;
     color: var(--red);
     font-weight: bolder;
     text-shadow: 3px 2px var(--orange);
@@ -180,8 +188,8 @@ body  {
     background-color: var(--red);
     color: white;
     font-size: 2vh;
-    width: 30vw;
-    padding: 1%;
+    width: 40vw;
+    padding: 2vw;
     line-height: 22px;
     border: 1vh solid var(--orange);
     box-shadow: 10px 10px 10px var(--red);
@@ -189,12 +197,55 @@ body  {
 
 .home > input {
     width: 20vw;
+    min-width: 20em;
+
     height: 3vh;
     border: 1px solid var(--black);
     font-size: 2vh;
 }
 
 
+@media (max-width: 800px) {
+
+    .home > p {
+        width: 80vw;
+
+    }
+
+    .home > h1 {
+        font-size: 8vw;
+        text-shadow: 0.6vw 0.4vw var(--orange);
+    }
+
+
+    .wordList {
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        width: 80vw;
+        height: 3em;
+        justify-content: space-between;
+        align-content: center;
+        align-self: center;
+        padding: 2vw;
+        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    }
+
+
+    .wordItem {
+        height: 60%;
+        font-size: 1.3vh;
+
+
+    }
+
+    .lastSentence {
+        font-size: 1.5em;
+        font-style: italic;
+    }
+
+}
 
 
 
