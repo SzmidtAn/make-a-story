@@ -17,6 +17,8 @@ export class GamePage extends React.Component {
 
     }
 
+
+
     getJsonFromApi() {
         fetch("https://random-words-api.vercel.app/word")
             .then(res => res.json())
@@ -70,6 +72,7 @@ export class GamePage extends React.Component {
             <div className="gamePage">
 
                 <div className="gamePageContainer">
+                    <h1 className="gameCode">{this.props.location.gameCode}</h1>
                     <h1 className="lastSentence">So we just had to show this shoes to this duck...</h1>
 
                     <div >

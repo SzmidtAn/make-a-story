@@ -1,12 +1,34 @@
 import React from "react";
 import '../App.css'
+import {Link} from "react-router-dom";
 
 
 
 export class Home extends React.Component {
 
     componentDidMount() {
-        document.body.style.backgroundColor = "white"
+        document.body.style.backgroundColor = "var(--orange)"
+    }
+
+    state = {
+      code: ""
+    };
+
+    startGameWithCode (code){
+
+        if (this.state.code.length === 6) {
+            this.props.history.push({
+                pathname: '/make-a-story/game',
+                gameCode: code
+            })
+        } else {
+            this.setState({
+                code: "Game PIN must to have 6 siffror"
+            })
+        }
+
+
+
     }
 
     render() {
@@ -29,12 +51,16 @@ export class Home extends React.Component {
                         Improve your English and have fun!
                         </p>
 
-
-                    <button className="btn blue circular">Get started</button>
+                    <Link to="/make-a-story/create-new-game">
+                    <button className="btn blue circular"  >Create new game</button>
+                    </Link>
                     <h3>Or do you already have code?</h3>
-                    <h2>Please enter the code</h2>
-                    <input placeholder="1234 2345" />
-                    <button className="  circular small">Submit</button>
+                    <div className="gamePin">
+
+                    <input placeholder="Game PIN" value={this.state.code}  onChange={(e) => {this.handleInput(e)}}/>
+
+                    <button className="btn red  small" onClick={ () => this.startGameWithCode(this.state.code)}>Enter</button>
+                    </div>
 
                 </div>
 
@@ -44,7 +70,21 @@ export class Home extends React.Component {
     }
 
 
+    handleInput(e) {
+        if (this.state.code === "Game PIN must to have 6 siffror") {
+            this.setState({
+                code: ""
+            })
+        }else {
 
+            this.setState({
+                code: e.target.value
+            })
+        }
+
+
+
+    }
 }
 
 

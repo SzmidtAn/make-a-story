@@ -7,7 +7,8 @@ import {
 } from 'react-router-dom';
 import {GamePage} from "./Pages/GamePage";
 import {Home} from "./Pages/Home";
-
+import {CreateNewGamePage} from "./Pages/CreateNewGamePage";
+import {GameCodeViewPage} from "./Pages/GameCodeViewPage";
 
 
 export class App extends React.Component {
@@ -19,15 +20,20 @@ export class App extends React.Component {
                 <div className="appContainer">
                     <ul>
                         <li>
-                            <Link to="/">Home</Link>
+                            <Link to="/make-a-story/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/game">Game</Link>
+                            <Link to="/make-a-story/game">Game</Link>
+                        </li>
+                        <li>
+                            <Link to="/make-a-story/create-new-game">Create new game</Link>
                         </li>
                     </ul>
 
-                    <Route exact path="/" component={Home} />
-                    <Route path="/game" component={GamePage} />
+                    <Route exact path="/make-a-story/" component={Home} />
+                    <Route path="/make-a-story/game" component={GamePage} />
+                    <Route path="/make-a-story/create-new-game" component={CreateNewGamePage} />
+                    <Route path="/make-a-story/GameCodeViewPage" component={GameCodeViewPage}  />
                 </div>
 
 

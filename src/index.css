@@ -3,16 +3,16 @@ body  {
     height: 100%;
     background-color: white;
 
-
 }
 
 :root {
     --red: #ff595e;
-    --redDark: #8D0801;
-    --blue: #1982c4;
+    --redDark: #f8837c;
+    --blue: #3852FF;
+    --blueLight: #9AA5F4;
     --orange: #ffca3a;
     --orangeDark: #f3ab09;
-    --black: #252323;
+    --black: #302f2f;
     --fullwidth: 100%;
 }
 
@@ -101,6 +101,14 @@ body  {
     margin-top: 2vh;
 }
 
+.gameCode {
+    background-color: white;
+    color: var(--black);
+    font-size: xx-large;
+    padding: 2% 5% 2% 5%;
+    border-radius: 10px;
+}
+
 .btn {
     padding: 1em 2.1em 1.1em;
     border-radius: 3px;
@@ -141,33 +149,28 @@ body  {
 }
 
 .small{
-    border: 1px solid var(--blue);
-    border-radius: 50em !important;
-    padding: 0.8em 1em 0.8em 1em;
-    font-family: sans-serif;
-    font-weight: 800;
-    font-size: .85em;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: none;
-    margin: 8px 8px 8px 8px;
 
-    width: 8vw;
+    width: 100%;
     min-width: 20em;
+    padding: 0;
+    height: 50%;
+    margin: 5px 0 0 0 ;
 
-    background-color: transparent;
-    color: var(--blue);
+
 }
 
-.small:hover {
-    background-color: var(--blue);
-    color: white;
-}
 
 .blue {
     background-color: var(--blue);
 }
 
+.red {
+    background-color: var(--red);
+}
+
+.orangeDark {
+    background-color: var(--orangeDark);
+}
  /*homePage*/
 
 .home{
@@ -178,43 +181,135 @@ body  {
 }
 
 .home > h1 {
-    font-size: 4vw;
-    color: var(--red);
+    font-size: 55px;
+    color: white;
     font-weight: bolder;
-    text-shadow: 3px 2px var(--orange);
+    text-shadow: 3px 2px var(--red);
 }
 
 .home > p {
     background-color: var(--red);
     color: white;
-    font-size: 2vh;
-    width: 40vw;
+    font-size: 1.3em;
+    width: 600px;
     padding: 2vw;
     line-height: 22px;
-    border: 1vh solid var(--orange);
+    border: 1vh solid var(--orangeDark);
     box-shadow: 10px 10px 10px var(--red);
 }
 
-.home > input {
-    width: 20vw;
+.gamePin > input {
     min-width: 20em;
+    width: 100%;
 
-    height: 3vh;
+    height: 50%;
     border: 1px solid var(--black);
-    font-size: 2vh;
+    text-align: center;
+    margin-bottom: 5px;
+
 }
 
+.home .gamePin {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 100px;
+
+    border-radius: 6px;
+    border-color: var(--black);
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+
+/*Create Game Page*/
+
+.createNewGamePage {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    grid-gap: 3vw;
+    padding-left: 6vw;
+    padding-right: 6vw;
+
+}
+
+.createNewGamePage > h1 {
+    color: white;
+    grid-column: 1/4;
+    text-align: center;
+    font-size: 40px;
+}
+
+.createNewGamePage > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    max-width: 350px;
+    padding: 30px;
+    color: white;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-size: 1.5em;
+    box-shadow: 5px 5px 15px ;
+}
+
+.card >  button {
+    padding: 10px;
+    color: var(--red);
+    font-weight: bold;
+    border: none;
+}
+
+.circle {
+    background-color: white;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+
+    transform: translateY(50%);
+}
+
+.orangeDarkGradient {
+    background: linear-gradient(130deg, var(--orangeDark), var(--orange));
+}
+
+
+.blueGradient{
+    background: linear-gradient(130deg, var(--blue), var(--blueLight));
+
+}
+
+.redGradient{
+    background: linear-gradient(130deg, var(--red), var(--redDark));
+
+}
 
 @media (max-width: 800px) {
 
     .home > p {
-        width: 80vw;
+        width: 90vw;
+        font-size: large;
 
     }
 
     .home > h1 {
         font-size: 8vw;
-        text-shadow: 0.6vw 0.4vw var(--orange);
+        text-shadow: 0.6vw 0.4vw var(--orangeDark);
     }
 
 
@@ -243,6 +338,19 @@ body  {
     .lastSentence {
         font-size: 1.5em;
         font-style: italic;
+    }
+
+    .createNewGamePage {
+
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+
+
+    }
+
+    .card {
+        width: 90%;
     }
 
 }
