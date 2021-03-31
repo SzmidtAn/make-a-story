@@ -2,6 +2,7 @@ body  {
     color: var(--black);
     height: 100%;
     background-color: white;
+    padding-bottom: 50px;
 
 }
 
@@ -32,6 +33,15 @@ body  {
     justify-content: center;
     align-items: center;
     align-content: center;
+
+}
+
+.gamePageContainer >p {
+    color: var(--black);
+    transform: rotate(350deg);
+    text-align: center;
+    align-self: start;
+    font-style: italic;
 
 }
 
@@ -71,6 +81,7 @@ body  {
     display: flex;
     flex-wrap: wrap;
 
+
 }
 
 
@@ -80,11 +91,11 @@ body  {
     max-width: 80%;
     height: 80%;
     width: 100%;
-    background: transparent;
     font-size: 2.5vh;
-    border-color: white;
+    border-color: var(--black);
     border-width: 0 0 3px 0;
     color: var(--black);
+    padding: 1%;
 
 }
 
@@ -133,10 +144,10 @@ body  {
     box-shadow: 0em -0.3rem 0em rgba(0, 0, 0, 0.1) inset;
     position: relative;
 }
-.btn:hover, .btn:focus {
+.btn:hover, .btn:focus, .card >  button:active  {
     opacity: 0.8;
 }
-.btn:active, .small:active {
+.btn:active, .small:active, .card >  button:active  {
     -webkit-transform: scale(0.80);
     -moz-transform: scale(0.80);
     -ms-transform: scale(0.80);
@@ -268,11 +279,19 @@ body  {
     box-shadow: 5px 5px 15px ;
 }
 
+.card:hover {
+    transform: scale(1.1);
+}
+
 .card >  button {
     padding: 10px;
     color: var(--red);
     font-weight: bold;
     border: none;
+}
+
+.card >  button:active {
+
 }
 
 .circle {
@@ -297,6 +316,22 @@ body  {
 .redGradient{
     background: linear-gradient(130deg, var(--red), var(--redDark));
 
+}
+
+
+/*Game Code View Page*/
+
+.GameCodeView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.GameCodeView > h1{
+    background-color: white;
+    padding: 1%;
+    border-radius: 10px;
 }
 
 @media (max-width: 800px) {

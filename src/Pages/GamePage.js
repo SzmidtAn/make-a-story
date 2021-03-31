@@ -72,11 +72,13 @@ export class GamePage extends React.Component {
             <div className="gamePage">
 
                 <div className="gamePageContainer">
-                    <h1 className="gameCode">{this.props.location.gameCode}</h1>
+                    <h1 className="gameCode">{this.props.location.gameCode ? this.props.location.gameCode :"786954"}</h1>
+                    <p>This is the last<br/> sentence someone wrote<br/> in your story &darr;</p>
                     <h1 className="lastSentence">So we just had to show this shoes to this duck...</h1>
 
                     <div >
-                 <WordsList contacts={this.state.contacts} wordTowordItem={this.wordTowordItem}  showItemsDescription={this.showItemsDescription} />
+                        {this.state.contacts.length === 2 ?   <WordsList contacts={this.state.contacts} wordTowordItem={this.wordTowordItem}  showItemsDescription={this.showItemsDescription} />
+                        : "Loading..." }
 
                     </div>
                 </div>

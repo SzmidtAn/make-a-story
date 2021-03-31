@@ -23,7 +23,7 @@ export class Home extends React.Component {
             })
         } else {
             this.setState({
-                code: "Game PIN must to have 6 siffror"
+                code: "Game PIN must contains 6 digits"
             })
         }
 
@@ -37,19 +37,20 @@ export class Home extends React.Component {
 
                 <div className="home">
            <h1>WHAT HAPPENS NEXT?</h1>
-                    <p>Generat code and share then with  your friends to build a funny story together!
-                        You have to add a new sentence with two given words and complete What Happens Next?
 
+                    <p>
+                        Generate the code and share it with your friends to create a fun story together! You need to add a new sentence with two given words and complete What Happens Next?
                         <br/>
                         <br/>
-                        You can choose of 3 levels of vocabulary - beginner, medium and advanced.
+                        You can choose from 3 vocabulary levels - Beginner, Intermediate and Advanced.
                         <br/>
                         <br/>
-                        To make it difficult you can just see the last sentence someone made and when the story is complete, you can read the whole.
+                        To make it harder you can only see the last sentence someone wrote, and when the story is complete you can read the whole thing.
                         <br/>
                         <br/>
                         Improve your English and have fun!
-                        </p>
+                    </p>
+
 
                     <Link to="/make-a-story/create-new-game">
                     <button className="btn blue circular"  >Create new game</button>
@@ -71,7 +72,7 @@ export class Home extends React.Component {
 
 
     handleInput(e) {
-        if (this.state.code === "Game PIN must to have 6 siffror") {
+        if (this.state.code === "Game PIN must contains 6 digits") {
             this.setState({
                 code: ""
             })
