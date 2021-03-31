@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import React from "react";
-
+import firebase from "firebase/app";
+import "firebase/firestore";
 
 
 export class GameCodeViewPage  extends React.Component {
@@ -10,12 +11,9 @@ export class GameCodeViewPage  extends React.Component {
     }
     goToCode (code){
 
-        this.crateNewGame()
+        this.createNewGame()
 
-        this.props.history.push({
-            pathname: '/make-a-story/game',
-            gameCode: code
-        })
+
 
     }
 
@@ -23,7 +21,25 @@ export class GameCodeViewPage  extends React.Component {
         code: Math.floor(Math.random() * (999999 - 111111) + 111111)
     }
 
-    crateNewGame = event => {
+    createNewGame = event => {
+        var db = firebase.firestore();
+        console.log(db)
+
+        db.collection("game").add({
+            gamePIN: this.state.code.toString(),
+            level: this.props.location.level,
+            story: ""
+        })
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+                this.props.history.push({
+                    pathname: '/make-a-story/game',
+                    gameCode: this.state.code.toString()
+                })
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });
 
     };
 

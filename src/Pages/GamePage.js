@@ -1,7 +1,8 @@
 import {WordsList} from "../WordsList";
 import React from "react";
 import {WordItem, WordItemDescription} from "../WordItem";
-import {TextView} from "../TextView";
+import firebase from "firebase/app";
+import "firebase/firestore";
 
 
 export class GamePage extends React.Component {
@@ -9,10 +10,16 @@ export class GamePage extends React.Component {
         contacts: [],
         getWord: "",
         getDetailsToThisWord: false,
+        gameCode: "",
+        lastSentence: "",
+        newSentence: "",
+        story: "",
+        gameID: ""
     };
 
     componentDidMount() {
-        this.handleInputChange()
+        this.getNewWords()
+        this.getGameFromDB(this.props.location.gameCode)
         document.body.style.backgroundColor = "var(--red)"
 
     }
@@ -29,7 +36,7 @@ export class GamePage extends React.Component {
     );
     }
 
-    handleInputChange = (e) => {
+    getNewWords = (e) => {
         this.setState({
             contacts: [],
             getDetailsToThisWord: false,
@@ -66,15 +73,65 @@ export class GamePage extends React.Component {
         }
     }
 
+    getGameFromDB =  (codePIN)=> {
+    const unsub = firebase
+        .firestore()
+        .collection("game")
+        .where('gamePIN', '==', codePIN)
+        .get()
+        .then(game => {
+            game.forEach((doc) => {
+                console.log(`${doc.id} => ${doc.data()}`);
+
+                this.setState({
+                  gameCode: codePIN,
+                  lastSentence: doc.get("lastSentence"),
+                  story: doc.get("story"),
+                  gameID: doc.id
+              })
+            });
+        })
+
+
+}
+
+    handleInput = (e) => {
+        this.setState({
+            newSentence: e.target.value
+        })
+    }
+
+    submitNewSentence = () => {
+
+        firebase
+            .firestore()
+            .collection("game")
+            .doc(this.state.gameID)
+            .update({
+           "lastSentence" : this.state.newSentence,
+                "story" :  this.state.story + " " + this.state.newSentence
+        })
+            .then(() => {
+                console.log("Document successfully updated!");
+            });
+
+        this.navigateToHomePage()
+
+    }
+
+    navigateToHomePage() {
+        this.props.history.push({
+            pathname: '/make-a-story/'})
+    }
 
     render() {
         return (
             <div className="gamePage">
 
                 <div className="gamePageContainer">
-                    <h1 className="gameCode">{this.props.location.gameCode ? this.props.location.gameCode :"786954"}</h1>
+                    <h1 className="gameCode">{this.state.gameCode}</h1>
                     <p>This is the last<br/> sentence someone wrote<br/> in your story &darr;</p>
-                    <h1 className="lastSentence">So we just had to show this shoes to this duck...</h1>
+                    <h1 className="lastSentence">{this.state.lastSentence}</h1>
 
                     <div >
                         {this.state.contacts.length === 2 ?   <WordsList contacts={this.state.contacts} wordTowordItem={this.wordTowordItem}  showItemsDescription={this.showItemsDescription} />
@@ -89,11 +146,13 @@ export class GamePage extends React.Component {
                                 {this.wordTowordItem(this.state.getWord, "WordItemDescription")}
                             </div>  : ""}
                     </div>
-                    <div>
-                        <TextView />
-                    </div>
+                <div className="textArea">
+                    <input placeholder="Write your sentence here... You must use the given words!"
+                           value={this.state.newSentence}  onChange={(e) => {this.handleInput(e)}}/>
 
-                <button className="btn blue circular" type="button">Done</button>
+                </div>
+
+                <button className="btn blue circular" type="button" onClick={this.submitNewSentence}>Done</button>
 
             </div>
         );

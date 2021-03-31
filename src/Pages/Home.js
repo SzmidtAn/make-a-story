@@ -1,6 +1,7 @@
 import React from "react";
 import '../App.css'
 import {Link} from "react-router-dom";
+import firebase from "firebase";
 
 
 
@@ -14,21 +15,54 @@ export class Home extends React.Component {
       code: ""
     };
 
+    getDataFromDB =  (codePIN)=> {
+        const unsub = firebase
+            .firestore()
+            .collection("game")
+            .where('gamePIN', '==', codePIN)
+            .get()
+            .then(game => {
+                game.forEach((doc) => {
+              this.navigateToGamePage(codePIN)
+                });
+            })
+            .then(
+                this.setState({
+                    code: "Incorrect Game PIN"
+                })
+            );
+    }
+
     startGameWithCode (code){
 
         if (this.state.code.length === 6) {
-            this.props.history.push({
-                pathname: '/make-a-story/game',
-                gameCode: code
-            })
+        this.getDataFromDB(code)
         } else {
             this.setState({
                 code: "Game PIN must contains 6 digits"
             })
         }
+    }
+
+    navigateToGamePage = (codePIN) => {
+        this.props.history.push({
+            pathname: '/make-a-story/game',
+            gameCode: codePIN
+        })
+    }
 
 
+    handleInput(e) {
+        if (this.state.code === "Game PIN must contains 6 digits" || this.state.code === "Incorrect Game PIN")  {
+            this.setState({
+                code: ""
+            })
+        } else {
 
+            this.setState({
+                code: e.target.value
+            })
+        }
     }
 
     render() {
@@ -58,7 +92,7 @@ export class Home extends React.Component {
                     <h3>Or do you already have code?</h3>
                     <div className="gamePin">
 
-                    <input placeholder="Game PIN" value={this.state.code}  onChange={(e) => {this.handleInput(e)}}/>
+                    <input placeholder="Game PIN" value={this.state.code}  onClick={(e) => {this.handleInput(e)}} onChange={(e) => {this.handleInput(e)}}/>
 
                     <button className="btn red  small" onClick={ () => this.startGameWithCode(this.state.code)}>Enter</button>
                     </div>
@@ -71,21 +105,6 @@ export class Home extends React.Component {
     }
 
 
-    handleInput(e) {
-        if (this.state.code === "Game PIN must contains 6 digits") {
-            this.setState({
-                code: ""
-            })
-        }else {
-
-            this.setState({
-                code: e.target.value
-            })
-        }
-
-
-
-    }
 }
 
 
