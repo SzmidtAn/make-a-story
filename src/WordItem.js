@@ -6,13 +6,14 @@ export const WordItem = ({title, showItemsDescription}) => {
     );
 };
 
-export const WordItemDescription = ({title, description, pronunciation }) => {
+export const WordItemDescription = ({title, description, pronunciation, example }) => {
 
     return (
             <div className="itemDetail">
                 <h1 className="header">{title}</h1>
                 <h2 className="pronunciation">{pronunciation}</h2>
                 <p className="descriptionItem">Definition: {description}</p>
+                <p className="descriptionItem">Example: {example}</p>
             </div>
     );
 };

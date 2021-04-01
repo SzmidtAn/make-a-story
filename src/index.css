@@ -1,24 +1,27 @@
 body  {
-    color: var(--black);
+    color: white;
     height: 100%;
     background-color: white;
     padding-bottom: 50px;
+    font-family: "Courier", sans-serif;
 
 }
 
 :root {
-    --red: #ff595e;
+    --red:     #ff595e;
     --redDark: #f8837c;
-    --blue: #3852FF;
+    --blue: #0774bb;
     --blueLight: #9AA5F4;
-    --orange: #ffca3a;
-    --orangeDark: #f3ab09;
+    --orange: #fdee21;
+    --orangeDark: #faaf3c;
     --black: #302f2f;
     --fullwidth: 100%;
+    --redGradient: linear-gradient(130deg, var(--red), var(--redDark));
+    --orangeGradient: linear-gradient(130deg, var(--orangeDark), var(--orange));
+    --blueGradient: linear-gradient(130deg, var(--blue), var(--blueLight));
 }
 
 .gamePage {
-    background-color: var(--red);
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -58,7 +61,7 @@ body  {
 }
 
 .wordItem {
-    background-color: var(--orange);
+    background: var(--orangeGradient);
     width: 30%;
     margin: auto;
     font-size: 0.8vw;
@@ -212,6 +215,7 @@ body  {
     min-width: 20em;
     width: 100%;
 
+
     height: 50%;
     border: 1px solid var(--black);
     text-align: center;
@@ -278,9 +282,7 @@ body  {
     box-shadow: 5px 5px 15px ;
 }
 
-.card:hover {
-    transform: scale(1.1);
-}
+
 
 .card >  button {
     padding: 10px;
@@ -291,6 +293,10 @@ body  {
 
 .card >  button:active {
 
+}
+
+.card:hover {
+    transform: scale(1.1);
 }
 
 .circle {
@@ -331,9 +337,24 @@ body  {
     background-color: white;
     padding: 1%;
     border-radius: 10px;
+    color: var(--black);
 }
 
+
 @media (max-width: 800px) {
+
+    :root {
+    --red: #ac1014;
+    --blue: #20639b;
+    --blueLight: #9AA5F4;
+    --orange: #f9de59;
+    --orangeDark: #e88228;
+    --black: #302f2f;
+    --fullwidth: 100%;
+    --redGradient: linear-gradient(130deg, var(--red), var(--redDark));
+    --orangeGradient: linear-gradient(130deg, var(--orangeDark), var(--orange));
+    --blueGradient: linear-gradient(130deg, var(--blue), var(--blueLight));
+}
 
     .home > p {
         width: 90vw;
@@ -389,10 +410,7 @@ body  {
 
     .textArea > input {
         width: 90%;
-        font-size: 2.5vh;
-        border-color: var(--black);
-        border-width: 0 0 3px 0;
-        color: var(--black);
+        height: 30px;
         padding: 1%;
         margin-left: 0;
         margin-right: 0;

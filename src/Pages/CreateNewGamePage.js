@@ -31,11 +31,11 @@ export class CreateNewGamePage extends React.Component {
             <div className="createNewGamePage" >
                 <h1>Select your level</h1>
 
-                <div className="cardcircle">
+                <div>
 
-                    <div className="circle orangeDarkGradient"> </div>
-                    <div className="card orangeDark">
-                        <p>You want to learn English
+                    <div className="circle blueGradient"> </div>
+                    <div className="card blue">
+                        <p>You want learn English
                             <br/>
                             and your current level
                             <br/>
@@ -62,8 +62,8 @@ export class CreateNewGamePage extends React.Component {
 
                 <div>
 
-                    <div className="circle blueGradient"> </div>
-                    <div className="card blue">
+                    <div className="circle orangeDarkGradient"> </div>
+                    <div className="card orangeDark">
                         <p>You are PRO
                             <br/>
                             and you want to learn

@@ -23,7 +23,6 @@ export class GameCodeViewPage  extends React.Component {
 
     createNewGame = event => {
         var db = firebase.firestore();
-        console.log(db)
 
         db.collection("game").add({
             gamePIN: this.state.code.toString(),
@@ -31,7 +30,6 @@ export class GameCodeViewPage  extends React.Component {
             story: ""
         })
             .then((docRef) => {
-                console.log("Document written with ID: ", docRef.id);
                 this.props.history.push({
                     pathname: '/make-a-story/game',
                     gameCode: this.state.code.toString()

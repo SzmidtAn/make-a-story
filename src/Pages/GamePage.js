@@ -30,10 +30,10 @@ export class GamePage extends React.Component {
         fetch("https://random-words-api.vercel.app/word")
             .then(res => res.json())
             .then(json =>
-            {this.setState({
+                {this.setState({
                     contacts: this.state.contacts.concat(json)
                 })}
-    );
+            );
     }
 
     getNewWords = (e) => {
@@ -42,17 +42,17 @@ export class GamePage extends React.Component {
             getDetailsToThisWord: false,
         })
         for (let i = 0; i < 2; i++) {
-        this.getJsonFromApi(true)
+            this.getJsonFromApi(true)
         }
     }
 
     showItemsDescription = (e) => {
         const index = this.getIndex(e.target.textContent)
         const getWord = this.state.contacts[index]
-            this.setState({
-                getWord: getWord,
-                getDetailsToThisWord: true,
-            })
+        this.setState({
+            getWord: getWord,
+            getDetailsToThisWord: true,
+        })
     }
 
     getIndex = (title) => {
@@ -74,26 +74,26 @@ export class GamePage extends React.Component {
     }
 
     getGameFromDB =  (codePIN)=> {
-    const unsub = firebase
-        .firestore()
-        .collection("game")
-        .where('gamePIN', '==', codePIN)
-        .get()
-        .then(game => {
-            game.forEach((doc) => {
-                console.log(`${doc.id} => ${doc.data()}`);
+        const unsub = firebase
+            .firestore()
+            .collection("game")
+            .where('gamePIN', '==', codePIN)
+            .get()
+            .then(game => {
+                game.forEach((doc) => {
+                    console.log(`${doc.id} => ${doc.data()}`);
 
-                this.setState({
-                  gameCode: codePIN,
-                  lastSentence: doc.get("lastSentence"),
-                  story: doc.get("story"),
-                  gameID: doc.id
-              })
-            });
-        })
+                    this.setState({
+                        gameCode: codePIN,
+                        lastSentence: doc.get("lastSentence"),
+                        story: doc.get("story"),
+                        gameID: doc.id
+                    })
+                });
+            })
 
 
-}
+    }
 
     handleInput = (e) => {
         this.setState({
@@ -108,9 +108,9 @@ export class GamePage extends React.Component {
             .collection("game")
             .doc(this.state.gameID)
             .update({
-           "lastSentence" : this.state.newSentence,
+                "lastSentence" : this.state.newSentence,
                 "story" :  this.state.story + " " + this.state.newSentence
-        })
+            })
             .then(() => {
                 console.log("Document successfully updated!");
             });
@@ -135,17 +135,17 @@ export class GamePage extends React.Component {
 
                     <div >
                         {this.state.contacts.length === 2 ?   <WordsList contacts={this.state.contacts} wordTowordItem={this.wordTowordItem}  showItemsDescription={this.showItemsDescription} />
-                        : "Loading..." }
+                            : "Loading..." }
 
                     </div>
                 </div>
 
-                    <div>
-                        {this.state.getDetailsToThisWord ?
-                            <div>
-                                {this.wordTowordItem(this.state.getWord, "WordItemDescription")}
-                            </div>  : ""}
-                    </div>
+                <div>
+                    {this.state.getDetailsToThisWord ?
+                        <div>
+                            {this.wordTowordItem(this.state.getWord, "WordItemDescription")}
+                        </div>  : ""}
+                </div>
                 <div className="textArea">
                     <input placeholder="Write your sentence here... You must use the given words!"
                            value={this.state.newSentence}  onChange={(e) => {this.handleInput(e)}}/>
@@ -161,6 +161,4 @@ export class GamePage extends React.Component {
 
 
 }
-
-
 

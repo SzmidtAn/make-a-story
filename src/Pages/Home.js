@@ -8,7 +8,7 @@ import firebase from "firebase";
 export class Home extends React.Component {
 
     componentDidMount() {
-        document.body.style.backgroundColor = "var(--orange)"
+        document.body.style.background = "var(--orangeGradient)"
     }
 
     state = {
@@ -94,7 +94,7 @@ export class Home extends React.Component {
 
                     <input placeholder="Game PIN" value={this.state.code}  onClick={(e) => {this.handleInput(e)}} onChange={(e) => {this.handleInput(e)}}/>
 
-                    <button className="btn red  small" onClick={ () => this.startGameWithCode(this.state.code)}>Enter</button>
+                    <button className="btn red small" onClick={ () => this.startGameWithCode(this.state.code)}>Enter</button>
                     </div>
 
                 </div>
