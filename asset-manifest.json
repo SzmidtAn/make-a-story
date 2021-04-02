@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/make-a-story/static/css/main.a63990a1.chunk.css",
-    "main.js": "/make-a-story/static/js/main.69da2d4b.chunk.js",
-    "main.js.map": "/make-a-story/static/js/main.69da2d4b.chunk.js.map",
-    "runtime-main.js": "/make-a-story/static/js/runtime-main.fe6af013.js",
-    "runtime-main.js.map": "/make-a-story/static/js/runtime-main.fe6af013.js.map",
-    "static/js/2.811995b0.chunk.js": "/make-a-story/static/js/2.811995b0.chunk.js",
-    "static/js/2.811995b0.chunk.js.map": "/make-a-story/static/js/2.811995b0.chunk.js.map",
-    "static/js/3.1a91028f.chunk.js": "/make-a-story/static/js/3.1a91028f.chunk.js",
-    "static/js/3.1a91028f.chunk.js.map": "/make-a-story/static/js/3.1a91028f.chunk.js.map",
+    "main.css": "/make-a-story/static/css/main.b4d68f95.chunk.css",
+    "main.js": "/make-a-story/static/js/main.01284577.chunk.js",
+    "main.js.map": "/make-a-story/static/js/main.01284577.chunk.js.map",
+    "runtime-main.js": "/make-a-story/static/js/runtime-main.32be32a4.js",
+    "runtime-main.js.map": "/make-a-story/static/js/runtime-main.32be32a4.js.map",
+    "static/css/2.3c434353.chunk.css": "/make-a-story/static/css/2.3c434353.chunk.css",
+    "static/js/2.cd165b55.chunk.js": "/make-a-story/static/js/2.cd165b55.chunk.js",
+    "static/js/2.cd165b55.chunk.js.map": "/make-a-story/static/js/2.cd165b55.chunk.js.map",
+    "static/js/3.a4d0a39d.chunk.js": "/make-a-story/static/js/3.a4d0a39d.chunk.js",
+    "static/js/3.a4d0a39d.chunk.js.map": "/make-a-story/static/js/3.a4d0a39d.chunk.js.map",
     "index.html": "/make-a-story/index.html",
-    "static/css/main.a63990a1.chunk.css.map": "/make-a-story/static/css/main.a63990a1.chunk.css.map",
-    "static/js/2.811995b0.chunk.js.LICENSE.txt": "/make-a-story/static/js/2.811995b0.chunk.js.LICENSE.txt"
+    "static/css/2.3c434353.chunk.css.map": "/make-a-story/static/css/2.3c434353.chunk.css.map",
+    "static/css/main.b4d68f95.chunk.css.map": "/make-a-story/static/css/main.b4d68f95.chunk.css.map",
+    "static/js/2.cd165b55.chunk.js.LICENSE.txt": "/make-a-story/static/js/2.cd165b55.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.fe6af013.js",
-    "static/js/2.811995b0.chunk.js",
-    "static/css/main.a63990a1.chunk.css",
-    "static/js/main.69da2d4b.chunk.js"
+    "static/js/runtime-main.32be32a4.js",
+    "static/css/2.3c434353.chunk.css",
+    "static/js/2.cd165b55.chunk.js",
+    "static/css/main.b4d68f95.chunk.css",
+    "static/js/main.01284577.chunk.js"
   ]
 }
